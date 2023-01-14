@@ -1,0 +1,75 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              10/15/2022 10:19:55 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          unsigned char a[] = {0xC0,0xF9,0xA4,0xB0,
+   4                              0x99,0x92,0x82,0xF8,
+   5                              0x80,0x90,0x88,0x83,
+   6                              0xC6,0xA1,0x86,0x8E};
+   7          
+   8          void show(unsigned int num);
+   9                              
+  10          void main(void)
+  11          {
+  12   1        unsigned int cnt = 0,num;
+  13   1        
+  14   1        TMOD = 0x01;
+  15   1        TH0 = 0x3C;
+  16   1        TL0 = 0xAF;
+  17   1        TR0 = 1;
+  18   1        
+  19   1        while(1)
+  20   1        {
+  21   2          if(TF0 == 1)
+  22   2          {
+  23   3            TF0 = 0;
+  24   3            TH0 = 0x3C;
+  25   3            TL0 = 0xAF;
+  26   3            
+  27   3            cnt ++;
+  28   3            if(cnt >= 20)
+  29   3            {
+  30   4              cnt = 0;
+  31   4              num ++;
+  32   4            }
+  33   3          }
+  34   2          show(num);
+  35   2        }
+  36   1      }
+  37          
+  38          void show(unsigned int num)
+  39          {
+  40   1        unsigned char i,time;
+  41   1        for(i = 0;i < 8;i ++)
+  42   1        {
+  43   2          P0 = 0xFF;
+  44   2          P1 = 0xE8 + i;
+  45   2          P0 = a[num % 10];
+  46   2          num /= 10;
+  47   2          for(time = 0;time < 200;time ++);
+  48   2        }
+  49   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    142    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.60.0.0   MAIN                                                              10/15/2022 10:19:55 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     16       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

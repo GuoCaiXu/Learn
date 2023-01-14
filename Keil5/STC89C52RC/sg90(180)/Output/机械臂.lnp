@@ -1,0 +1,7 @@
+"..\Output\main.obj",
+"..\Output\sg90.obj",
+"..\Output\key.obj",
+"..\Output\STARTUP.obj",
+"..\Output\stc89cxx.obj" 
+TO "..\Output\»úÐµ±Û" 
+PRINT("..\Listing\»úÐµ±Û.m51") RAMSIZE(256) 

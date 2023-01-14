@@ -1,0 +1,5 @@
+"..\Output\main.obj",
+"..\Output\bsp_pwm.obj",
+"..\Output\STARTUP.obj" 
+TO "..\Output\ledºôÎüµÆ" 
+PRINT("..\Listing\ledºôÎüµÆ.m51") RAMSIZE(256) 

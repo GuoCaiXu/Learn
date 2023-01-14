@@ -1,0 +1,6 @@
+"..\Output\main.obj",
+"..\Output\bsp_hc_sr04.obj",
+"..\Output\STARTUP.obj",
+"..\Output\stc89cxx.obj" 
+TO "..\Output\³¬Éù²¨²â¾à" 
+PRINT("..\Listing\³¬Éù²¨²â¾à.m51") RAMSIZE(256) 

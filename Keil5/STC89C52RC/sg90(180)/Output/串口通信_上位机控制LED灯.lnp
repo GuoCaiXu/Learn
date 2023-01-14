@@ -1,0 +1,7 @@
+"..\Output\main.obj",
+"..\Output\sg90.obj",
+"..\Output\key.obj",
+"..\Output\STARTUP.obj",
+"..\Output\stc89cxx.obj" 
+TO "..\Output\串口通信_上位机控制LED灯" 
+PRINT("..\Listing\串口通信_上位机控制LED灯.m51") RAMSIZE(256) 

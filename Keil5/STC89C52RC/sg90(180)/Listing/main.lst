@@ -1,0 +1,76 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              12/21/2022 14:29:02 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\Output\main.obj
+COMPILER INVOKED BY: C:\keil_v5\C51\BIN\C51.EXE ..\User\main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\Libraries;..\User;..\U
+                    -ser\key;..\User\sg90) DEBUG OBJECTEXTEND PRINT(..\Listing\main.lst) TABS(2) OBJECT(..\Output\main.obj)
+
+line level    source
+
+   1          # include "stc89cxx.h"
+   2          # include "key.h"
+   3          # include "sg90.h"
+   4          
+   5          void main(){
+   6   1      
+   7   1          uint8_t key = 0;
+   8   1          signed char duty1 = 0;
+   9   1          signed char duty2 = 0;
+  10   1        
+  11   1          //初始化定时器中断
+  12   1          pwm_init(0xFE, 0x33, 40, duty1, duty2);
+  13   1      
+  14   1          while(1){
+  15   2      
+  16   2              //判断按键是否按下
+  17   2              key_pick();
+  18   2      
+  19   2              //获取哪个按键按下
+  20   2              key = key_Judgement();
+  21   2              if (key == 1){
+  22   3                  if (duty1 <= 3){
+  23   4                      duty1 += 2;
+  24   4                      //更新占空比
+  25   4                      pwm_set_duty(duty1, duty2);
+  26   4                  }
+  27   3              }
+  28   2              else if (key == 2){
+  29   3                  if (duty1 >= 2){
+  30   4                      duty1 -= 2;
+  31   4                      //更新占空比
+  32   4                      pwm_set_duty(duty1, duty2);
+  33   4                  }
+  34   3              }
+  35   2              else if (key == 3){
+  36   3                  if (duty2 <= 3){
+  37   4                      duty2 += 2;
+  38   4                      //更新占空比
+  39   4                      pwm_set_duty(duty1, duty2);
+  40   4                  }
+  41   3              }
+  42   2              else if (key == 4){
+  43   3                  if (duty2 >= 2){
+  44   4                      duty2 -= 2;
+  45   4                      //更新占空比
+  46   4                      pwm_set_duty(duty1, duty2);
+  47   4                  }
+  48   3              }
+  49   2          }
+  50   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    164    ----
+C51 COMPILER V9.60.0.0   MAIN                                                              12/21/2022 14:29:02 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,248 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              12/10/2022 13:30:55 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\Output\main.obj
+COMPILER INVOKED BY: C:\keil_v5\C51\BIN\C51.EXE ..\User\main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(..\List
+                    -ing\main.lst) TABS(2) OBJECT(..\Output\main.obj)
+
+line level    source
+
+   1          # include <reg52.h>
+   2          # define uchar unsigned char
+   3          # define uint unsigned int
+   4          
+   5          //????
+   6          sbit OUT1 =P1^0;
+   7          sbit OUT2 =P1^1;
+   8          sbit OUT3 =P1^2;
+   9          sbit OUT4 =P1^3;
+  10          
+  11          //??
+  12          sbit KeyOut4 = P2^0;
+  13          sbit KeyOut3 = P2^1;
+  14          sbit KeyOut2 = P2^2;
+  15          sbit KeyOut1 = P2^3;
+  16          sbit KEY1 = P2^4;
+  17          sbit KEY2 = P2^5;
+  18          sbit KEY3 = P2^6;
+  19          sbit KEY4 = P2^7;
+  20          
+  21          //???T0?????
+  22          void T0_init(){
+  23   1        EA = 1; //???????
+  24   1        TMOD = 0x01; //T0????1
+  25   1        TH0 = 0xfc;
+  26   1        TL0 = 0x66;
+  27   1        ET0 = 1;
+  28   1        TR0 = 1;
+  29   1        KeyOut1 = 0;
+  30   1      }
+  31          
+  32          //??????
+  33          uchar cnt = 0;
+  34          
+  35          //????????
+  36          uchar KeySta[] = {1,1,1,1};
+  37          
+  38          //??????
+  39          uchar dir = 0;
+  40          
+  41          //??????
+  42          uchar Menu = 0;
+  43          
+  44          //????????
+  45          void pickScanf();
+  46          
+  47          //??????2
+  48          void MenuBJ();
+  49          
+  50          //???
+  51          void main(){
+  52   1      
+  53   1        T0_init();
+  54   1      
+C51 COMPILER V9.60.0.0   MAIN                                                              12/10/2022 13:30:55 PAGE 2   
+
+  55   1        while(1){
+  56   2          if (Menu == 0){
+  57   3          pickScanf();
+  58   3          }
+  59   2          else if (Menu == 1){
+  60   3            MenuBJ();
+  61   3          }
+  62   2        }
+  63   1      }
+  64          
+  65          //????
+  66          void tureBJ(signed m){
+  67   1      static signed char i = 0;
+  68   1      
+  69   1        if (m != -1){
+  70   2          i = m;
+  71   2        }
+  72   1      
+  73   1        switch(i){
+  74   2          case 0: OUT1 = 1; OUT2 = 0; OUT3 = 0; OUT4 = 0; break;
+  75   2          case 1: OUT1 = 1; OUT2 = 1; OUT3 = 0; OUT4 = 0; break;
+  76   2          case 2: OUT1 = 0; OUT2 = 1; OUT3 = 0; OUT4 = 0; break;
+  77   2          case 3: OUT1 = 0; OUT2 = 1; OUT3 = 1; OUT4 = 0; break;
+  78   2          case 4: OUT1 = 0; OUT2 = 0; OUT3 = 1; OUT4 = 0; break;
+  79   2          case 5: OUT1 = 0; OUT2 = 0; OUT3 = 1; OUT4 = 1; break;
+  80   2          case 6: OUT1 = 0; OUT2 = 0; OUT3 = 0; OUT4 = 1; break;
+  81   2          case 7: OUT1 = 1; OUT2 = 0; OUT3 = 0; OUT4 = 1; break;
+  82   2          default: OUT1 = 0; OUT2 = 0; OUT3 = 0; OUT4 = 0; break;
+  83   2         }
+  84   1         if (dir == 0){
+  85   2        i++;
+  86   2        if (i >= 8){
+  87   3          i = 0;
+  88   3        }
+  89   2         }
+  90   1         else if (dir == 1){
+  91   2        i--;
+  92   2        if (i <= 0){
+  93   3          i = 7;
+  94   3        }
+  95   2         }
+  96   1      }
+  97          
+  98          //????
+  99          void ControlBJ(uchar num){
+ 100   1      
+ 101   1        //????
+ 102   1        if (num == 0){
+ 103   2          dir = !dir;
+ 104   2          if (dir == 0){
+ 105   3            tureBJ(0);
+ 106   3          }
+ 107   2          else{
+ 108   3            tureBJ(7);
+ 109   3          }
+ 110   2        }
+ 111   1        //??
+ 112   1        else if (num == 1){
+ 113   2          if (cnt <= 0){
+ 114   3            cnt = 1;
+ 115   3          }
+ 116   2          cnt--;
+C51 COMPILER V9.60.0.0   MAIN                                                              12/10/2022 13:30:55 PAGE 3   
+
+ 117   2        }
+ 118   1        //??
+ 119   1        else if (num == 2){
+ 120   2          cnt++;
+ 121   2        }
+ 122   1        //????????
+ 123   1        else if (num == 3){
+ 124   2          Menu = 1;
+ 125   2          EA = 0;
+ 126   2          dir = -1;
+ 127   2        }
+ 128   1      }
+ 129          
+ 130          void delay(uchar z){
+ 131   1        while(z--);
+ 132   1      }
+ 133          
+ 134          //??????2
+ 135          void MenuBJ(){
+ 136   1        static signed i = 0;
+ 137   1          if (KEY1 == 0){
+ 138   2            i = 0;
+ 139   2            while(1){
+ 140   3            tureBJ(i++);
+ 141   3            if (i >= 8){
+ 142   4              i = 0;
+ 143   4            }
+ 144   3            if (KEY1 == 1){
+ 145   4              break;
+ 146   4            }
+ 147   3            delay(200);
+ 148   3            }
+ 149   2              }
+ 150   1          else if (KEY2 == 0){
+ 151   2            i = 7;
+ 152   2            while(1){
+ 153   3            tureBJ(i--);
+ 154   3            if (i <= 0){
+ 155   4              i = 7;
+ 156   4            }
+ 157   3            if (KEY2 == 1){
+ 158   4              break;
+ 159   4            }
+ 160   3            delay(200);
+ 161   3            }
+ 162   2          }
+ 163   1          else if (KEY3 == 0){
+ 164   2            Menu = 0;
+ 165   2            EA = 1;
+ 166   2            dir = 0;
+ 167   2          }
+ 168   1      }
+ 169          
+ 170          //????????
+ 171          void pickScanf(){
+ 172   1        static KeyBac[] = {1,1,1,1};
+ 173   1        uchar i;
+ 174   1      
+ 175   1        for (i = 0; i < 4; i++){
+ 176   2          if (KeyBac[i] != KeySta[i]){
+ 177   3            if (KeyBac[i] != 0){
+ 178   4              ControlBJ(i);
+C51 COMPILER V9.60.0.0   MAIN                                                              12/10/2022 13:30:55 PAGE 4   
+
+ 179   4            }
+ 180   3            KeyBac[i] = KeySta[i];
+ 181   3          }
+ 182   2        }
+ 183   1        
+ 184   1      }
+ 185          
+ 186          //??????????
+ 187          void KeyScanf(){
+ 188   1        uchar i;
+ 189   1        uchar KeyBuf[] = {1,1,1,1};
+ 190   1      
+ 191   1        KeyBuf[0] = KEY1;
+ 192   1        KeyBuf[1] = KEY2;
+ 193   1        KeyBuf[2] = KEY3;
+ 194   1        KeyBuf[3] = KEY4;
+ 195   1      
+ 196   1        for (i = 0; i < 4; i++){
+ 197   2          if (KeyBuf[i] == 0){
+ 198   3            KeySta[i] = 0;
+ 199   3          }
+ 200   2          else if (KeyBuf[i] == 1){
+ 201   3            KeySta[i] = 1;
+ 202   3          }
+ 203   2        }
+ 204   1      }
+ 205          
+ 206          void InterruptTime0() interrupt 1{
+ 207   1        static uchar i = 0;
+ 208   1        TH0 = 0xfc;
+ 209   1        TL0 = 0x66;
+ 210   1      
+ 211   1        i++;
+ 212   1        if(i >= cnt){
+ 213   2          i = 0;
+ 214   2          tureBJ(-1);
+ 215   2        }
+ 216   1      
+ 217   1        KeyScanf();
+ 218   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    648    ----
+   CONSTANT SIZE    =      4    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     19       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

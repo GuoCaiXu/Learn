@@ -1,0 +1,166 @@
+C51 COMPILER V9.60.0.0   DS1302                                                            11/13/2022 11:20:58 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE DS1302
+OBJECT MODULE PLACED IN .\Obj\ds1302.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE App\ds1302\ds1302.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Public;.\App\ds130
+                    -2;.\App\smg) DEBUG OBJECTEXTEND PRINT(.\Obj\ds1302.lst) TABS(2) OBJECT(.\Obj\ds1302.obj)
+
+line level    source
+
+   1          # include "ds1302.h"
+   2          
+   3          //秒寄存器
+   4          u8 ds1302_write_CK[] = {0x80, 0x82, 0x84, 0x86, 0x88, 0x8a, 0x8c};
+   5          u8 ds1302_read_CK[] = {0x81, 0x83, 0x85, 0x87, 0x89, 0x8b, 0x8d};
+   6          
+   7          u8 ds1302_Time[7] = {0x00, 0x37, 0x13, 0x06, 0x11, 0x07, 0x22}; //秒 分 时 日 月 星期 年
+   8          
+   9          //写字节函数
+  10          void ds1302_write_byte(u8 addr, u8 dat){
+  11   1      
+  12   1          u8 i = 0;
+  13   1      
+  14   1          CE = 0;
+  15   1          //延时 1us
+  16   1          _nop_();
+  17   1          SCLK = 0;
+  18   1          //延时1 us
+  19   1          _nop_();
+  20   1          CE = 1;
+  21   1          _nop_();
+  22   1      
+  23   1          //先发送地址
+  24   1          for (i = 0; i < 8; i++){
+  25   2              ds1302_IO = addr & 0x01;
+  26   2              addr >>= 1;
+  27   2              //SCLK 拉高
+  28   2              SCLK = 1;
+  29   2              //延时
+  30   2              _nop_();
+  31   2              //SCLK 拉低
+  32   2              SCLK = 0;
+  33   2              //延时
+  34   2              _nop_();
+  35   2          }
+  36   1      
+  37   1          //写入数据
+  38   1          for (i = 0; i < 8; i++){
+  39   2              ds1302_IO = dat & 0x01;
+  40   2              dat >>= 1;
+  41   2              //SCLK 拉高
+  42   2              SCLK = 1;
+  43   2              //延时
+  44   2              _nop_();
+  45   2              //SCLK 拉低
+  46   2              SCLK = 0;
+  47   2              //延时
+  48   2              _nop_();
+  49   2          }
+  50   1      
+  51   1          CE = 0;
+  52   1      }
+  53          
+  54          //读字节函数
+C51 COMPILER V9.60.0.0   DS1302                                                            11/13/2022 11:20:58 PAGE 2   
+
+  55          u8 ds1302_read_byte(u8 addr){
+  56   1          u8 i = 0;
+  57   1          u8 value = 0;
+  58   1          u8 temp = 0;
+  59   1          
+  60   1          //CE 拉高
+  61   1          CE = 0;
+  62   1          //延时
+  63   1          _nop_();
+  64   1      
+  65   1          //SCLK 拉高
+  66   1          SCLK = 0;
+  67   1      
+  68   1          //延时
+  69   1          _nop_();
+  70   1      
+  71   1          //CE 再拉高
+  72   1          CE = 1;
+  73   1      
+  74   1          //延时
+  75   1          _nop_();
+  76   1      
+  77   1          //先发送地址
+  78   1          for (i = 0; i < 8; i++){
+  79   2      
+  80   2              //从低位开始读取， 一位一位开始读取
+  81   2              ds1302_IO = addr & 0x01;
+  82   2              addr >>= 1;
+  83   2              
+  84   2              //SCLK 拉高
+  85   2              SCLK = 1;
+  86   2              _nop_();
+  87   2      
+  88   2              //SCLK 拉低
+  89   2              SCLK = 0;
+  90   2              _nop_();
+  91   2          }
+  92   1      
+  93   1          //读数据
+  94   1          for (i = 0; i < 8; i++){
+  95   2      
+  96   2              temp = ds1302_IO;
+  97   2              value = (value >> 1) | (temp << 7);
+  98   2      
+  99   2              //SCLK 拉高
+ 100   2              SCLK = 1;
+ 101   2              _nop_();
+ 102   2      
+ 103   2              //SCLK 拉低
+ 104   2              SCLK = 0;
+ 105   2              _nop_();
+ 106   2          }
+ 107   1      
+ 108   1          //CE 拉低
+ 109   1          CE = 0;
+ 110   1          ds1302_IO = 0;
+ 111   1          SCLK = 0;
+ 112   1      
+ 113   1          return value;
+ 114   1      }
+ 115          
+ 116          //ds1302 初始化
+C51 COMPILER V9.60.0.0   DS1302                                                            11/13/2022 11:20:58 PAGE 3   
+
+ 117          void ds1302_init(){
+ 118   1      
+ 119   1          u8 i = 0;
+ 120   1      
+ 121   1          //初始化时钟 先把写保护寄存器给关了
+ 122   1          ds1302_write_byte(0x8e, 0x00);
+ 123   1      
+ 124   1          for (i = 0; i < 7; i++){
+ 125   2              ds1302_write_byte(ds1302_write_CK[i], ds1302_Time[i]);
+ 126   2          }
+ 127   1          //初始化完时间再把写保护给开启
+ 128   1          ds1302_write_byte(0x8e, 0x8e);
+ 129   1      }
+ 130          
+ 131          //读时间
+ 132          void ds1302_read_time(){
+ 133   1          u8 i = 0;
+ 134   1      
+ 135   1          for (i = 0; i < 7; i++){
+ 136   2              ds1302_Time[i] = ds1302_read_byte(ds1302_read_CK[i]);
+ 137   2          }
+ 138   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    231    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     21    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

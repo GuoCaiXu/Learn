@@ -1,0 +1,4 @@
+"..\Output\main.obj",
+"..\Output\STARTUP.obj" 
+TO "..\Output\步进电机" 
+PRINT("..\Listing\步进电机.m51") RAMSIZE(256) 

@@ -1,0 +1,84 @@
+C51 COMPILER V9.60.0.0   BSP_SG90                                                          12/14/2022 13:25:40 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE BSP_SG90
+OBJECT MODULE PLACED IN ..\Output\bsp_sg90.obj
+COMPILER INVOKED BY: C:\keil_v5\C51\BIN\C51.EXE ..\User\sg90\bsp_sg90.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\Libraries;..\
+                    -User) DEBUG OBJECTEXTEND PRINT(..\Listing\bsp_sg90.lst) TABS(2) OBJECT(..\Output\bsp_sg90.obj)
+
+line level    source
+
+   1          # include "./sg90/bsp_sg90.h"
+   2          
+   3          //初始化中断时间，周期，占空比
+   4          uint8_t gtim_h = 0;
+   5          uint8_t gtim_l = 0;
+   6          uint8_t gtim_scale = 0;
+   7          signed char gduty = 0;
+   8          
+   9          //PWM 初始化
+  10          void pwm_init(uint8_t tim_h, uint8_t tim_l, uint8_t tim_scale, signed char duty){
+  11   1      
+  12   1          //初始化中断时间，周期，占空比
+  13   1          gtim_h = tim_h;
+  14   1          gtim_l = tim_l;
+  15   1          gtim_scale = tim_scale;
+  16   1          gduty = duty;
+  17   1      
+  18   1          //定时器T0 工作模式M1
+  19   1          TMOD = 0x01;
+  20   1      
+  21   1          //设置中断时间
+  22   1          TH0 = gtim_h;
+  23   1          TL0 = gtim_l;
+  24   1      
+  25   1          //中断定时器T0 开启
+  26   1          ET0 = 1;
+  27   1      
+  28   1          //总中断开启
+  29   1          EA = 1;
+  30   1      
+  31   1          //定时器T0 开启
+  32   1          TR0 = 1;
+  33   1      }
+  34          
+  35          //更新占空比
+  36          void pwm_set_duty(signed char duty){
+  37   1          gduty = duty;
+  38   1      }
+  39          
+  40          //中断函数
+  41          void pwm() interrupt 1{
+  42   1      
+  43   1          static uint8_t time = 0;
+  44   1      
+  45   1          TH0 = gtim_h;
+  46   1          TL0 = gtim_l;
+  47   1      
+  48   1          time++;
+  49   1      
+  50   1          if (time >= gtim_scale) time = 0;
+  51   1      
+  52   1          if (time <= gduty){
+  53   2            PWM = 1;
+  54   2          }
+C51 COMPILER V9.60.0.0   BSP_SG90                                                          12/14/2022 13:25:40 PAGE 2   
+
+  55   1          else {
+  56   2            PWM = 0;
+  57   2          }
+  58   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     96    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

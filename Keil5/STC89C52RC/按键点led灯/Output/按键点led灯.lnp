@@ -1,0 +1,4 @@
+"..\Output\main.obj",
+"..\Output\STARTUP.obj" 
+TO "..\Output\按键点led灯" 
+PRINT("..\Listing\按键点led灯.m51") RAMSIZE(256) 

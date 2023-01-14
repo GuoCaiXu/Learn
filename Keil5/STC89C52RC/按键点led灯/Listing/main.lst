@@ -1,0 +1,50 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              12/14/2022 14:45:05 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\Output\main.obj
+COMPILER INVOKED BY: C:\keil_v5\C51\BIN\C51.EXE ..\User\main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(..\List
+                    -ing\main.lst) TABS(2) OBJECT(..\Output\main.obj)
+
+line level    source
+
+   1          #include "reg52.h"
+   2          # define uint unsigned int
+   3          # define uchar unsigned char
+   4          # define ulong unsigned long
+   5          
+   6          sbit Key1 = P0^4;
+   7          sbit Key2 = P0^5;
+   8          sbit Key3 = P0^6;
+   9          sbit Key4 = P0^7;
+  10          
+  11          //??
+  12          sbit LED1 = P0^0;
+  13          sbit LED2 = P0^1;
+  14          sbit LED3 = P0^2;
+  15          sbit LED4 = P0^3;
+  16          
+  17          void main(){
+  18   1      
+  19   1      
+  20   1          while(1){
+  21   2              LED1 = ~Key1;
+  22   2              LED2 = ~Key2;
+  23   2              LED3 = ~Key3;
+  24   2              LED4 = ~Key4;
+  25   2          }
+  26   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     22    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

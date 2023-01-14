@@ -1,0 +1,11 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "stc89cxx.h": "c",
+        "bsp_led.h": "c",
+        "bsp_uart.h": "c",
+        "sg90.h": "c"
+    },
+    "files.autoGuessEncoding": true,
+    "files.encoding": "gbk"
+}
