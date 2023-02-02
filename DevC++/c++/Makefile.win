@@ -4,9 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-RES      = C++_private.res
-OBJ      = main.o $(RES)
-LINKOBJ  = main.o $(RES)
+OBJ      = main.o
+LINKOBJ  = main.o
 LIBS     = -L"C:/App/DevC++/Dev-Cpp/MinGW64/lib" -L"C:/App/DevC++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/App/DevC++/Dev-Cpp/MinGW64/include" -I"C:/App/DevC++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/App/DevC++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/App/DevC++/Dev-Cpp/MinGW64/include" -I"C:/App/DevC++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/App/DevC++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/App/DevC++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -27,7 +26,3 @@ $(BIN): $(OBJ)
 
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
-
-C++_private.res: C++_private.rc 
-	$(WINDRES) -i C++_private.rc --input-format=rc -o C++_private.res -O coff 
-
