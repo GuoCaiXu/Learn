@@ -20,6 +20,14 @@
             }
           },
           {
+            "id": "f03c16ec6c3e4457",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
             "id": "f91b49d04fe2b23c",
             "type": "leaf",
             "state": {
@@ -31,9 +39,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "7400f57063ac8ef6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "3DMax安装教程.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -99,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "目录.md",
+                "file": "3DMax安装教程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "目录.md",
+                "file": "3DMax安装教程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +159,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "目录.md"
+                "file": "3DMax安装教程.md"
               }
             }
           }
@@ -160,10 +180,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "f91b49d04fe2b23c",
+  "active": "7400f57063ac8ef6",
   "lastOpenFiles": [
-    "增加一批元素 -- .extend(element).md",
     "目录.md",
+    "增加一批元素 -- .extend(element).md",
     "查询元素下标 -- .index(element).md",
     "追加元素 -- .append(element).md",
     "插入元素 -- .insert(n, element).md"
