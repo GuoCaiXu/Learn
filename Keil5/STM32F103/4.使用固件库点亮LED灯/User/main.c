@@ -15,7 +15,7 @@ int main(void){
 	while(1){
 	
 		//设置一个位
-		GPIO_SetBits(LED_GPIO_PORT, LED1_GPIO_PIN);
+		c(LED_GPIO_PORT, LED1_GPIO_PIN);
 		delay(0xfffff);
 		//复位一个位
 		GPIO_ResetBits(LED_GPIO_PORT, LED1_GPIO_PIN);
