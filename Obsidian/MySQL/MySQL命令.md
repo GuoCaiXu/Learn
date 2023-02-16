@@ -23,50 +23,50 @@ MySQL -u root -p
 
 
 &nbsp;
-# **3_ DDL**
+# **3_DDL**
 
-## **_1_DDL-库管理**
+## **1.库管理**
 
-### **1_查看数据库**
+### **&emsp;1.查看数据库**
 
 ```SQL
 show databases;
 ```
 
-### **2_使用数据库**
+### **&emsp;2.使用数据库**
 
 ```SQL
 use 数据库名称;
 ```
 
-### 3_创建数据库
+### **&emsp;3.创建数据库**
 
 ```SQL
 create database 数据库名称 [charset utf8];    # 一般charset utf8 写上去比较好
 ```
 
-### **4_删除数据库**
+### **&emsp;4.删除数据库**
 
 ```SQL
 drop database 数据库名称;
 ```
 
-### **5_查看当前使用的数据库**
+### **&emsp;5.查看当前使用的数据库**
 
 ```SQL
 select database();
 ```
 
 &nbsp;
-## **_2_DDL-表管理**
+## **2.表管理**
 
-### **1.查看有哪些表**
+### **&emsp;1.查看有哪些表**
 
 ```SQL
 show tables;    # 要先选择数据库
 ```
 
-### **2.删除表**
+### **&emsp;2.删除表**
 
 ```SQL
 # 方法1
@@ -76,7 +76,7 @@ drop table 表名称;
 drop table if exists 表名称;
 ```
 
-### **3.创建表**
+### **&emsp;3.创建表**
 
 ```SQL
 create table 表名称(
@@ -96,13 +96,13 @@ timestamp                   # 时间戳类型
 &nbsp;
 # **4_DML**
 
-### **1.数据插入insert**
+### **&emsp;1.数据插入insert**
 
 ```SQL
 insert into 表(列1, 列2, ......, 列N) values(值1, 值2, ......, 值N), (值1, 值2, ......, 值N);      # SQL写字符串时只能用''包围
 ```
 
-### **2.数据删除**
+### **&emsp;2.数据删除**
 
 ```SQL
 # 基础数据删除
@@ -112,7 +112,7 @@ delete from 表名称 [where 条件判断];
 delete from 表名称;
 ```
 
-### **3.数据更新**
+### **&emsp;3.数据更新**
 
 ```SQL
 # 基础数据更新
@@ -123,9 +123,9 @@ update 表名 set 列=值;
 ```
 
 &nbsp;
-# **_5_DQL**
+# **5_DQL**
 
-### **1.基础数据查询**
+### **&emsp;1.基础数据查询**
 
 ```SQL
 # 基础数据查询
@@ -138,7 +138,7 @@ select * from 表;
 select * from 表 where 条件判断;
 ```
 
-### **2.分组聚合**
+### **&emsp;2.分组聚合**
 
 ```SQL
 select 字段 | 聚合函数 from 表 [where 条件] group by 列;
@@ -151,7 +151,7 @@ select 字段 | 聚合函数 from 表 [where 条件] group by 列;
 - count(列 | *) # 求数量
 ```
 
-### **3.排序和分页的查询**
+### **&emsp;3.排序和分页的查询**
 
 ```SQL
 # 除第一行, 每一行可写可不写

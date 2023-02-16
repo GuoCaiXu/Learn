@@ -1,19 +1,19 @@
 {
   "main": {
-    "id": "2e0a2da4bec50dd3",
+    "id": "f4d07419fbccb28d",
     "type": "split",
     "children": [
       {
-        "id": "3454b56226405436",
+        "id": "24ca97cec3852945",
         "type": "tabs",
         "children": [
           {
-            "id": "7cb4a48d1eb843b8",
+            "id": "a6782e8ef83f2e1b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MySQL命令.md",
+                "file": "Github命令.md",
                 "mode": "preview",
                 "source": false
               }
@@ -25,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "8ca1b63bed3b2741",
+    "id": "25f1388868215188",
     "type": "split",
     "children": [
       {
-        "id": "8e1ab60527792197",
+        "id": "d2e4b63fe37aa675",
         "type": "tabs",
         "children": [
           {
-            "id": "972bdd5925c91c0c",
+            "id": "5c010b6cd54e8ca5",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +43,7 @@
             }
           },
           {
-            "id": "8c651409bd477125",
+            "id": "9b9ca3494d8bae3a",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +58,7 @@
             }
           },
           {
-            "id": "e21ab8d9b8a8a4ac",
+            "id": "07fda2ea392aeb6e",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -72,20 +72,20 @@
     "width": 300
   },
   "right": {
-    "id": "a1cf12ebe5aebdf1",
+    "id": "57f320a7e1dd6b75",
     "type": "split",
     "children": [
       {
-        "id": "eb1c415bacd24474",
+        "id": "db5f7991e79329ef",
         "type": "tabs",
         "children": [
           {
-            "id": "22eb062aaab347b9",
+            "id": "00aecde53e242eb7",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "MySQL命令.md",
+                "file": "Github命令.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,19 +97,19 @@
             }
           },
           {
-            "id": "c91dd01ba2f3a1ea",
+            "id": "dacd13f2e69553bb",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "MySQL命令.md",
+                "file": "Github命令.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "85b7a69fd8ec34e2",
+            "id": "e8aa656bd1b688bb",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,17 +120,16 @@
             }
           },
           {
-            "id": "ce832a7cfcb18876",
+            "id": "6210657ed4e71a6f",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "MySQL命令.md"
+                "file": "Github命令.md"
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -147,9 +146,6 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "7cb4a48d1eb843b8",
-  "lastOpenFiles": [
-    "插入insert.md",
-    "MySQL命令.md"
-  ]
+  "active": "a6782e8ef83f2e1b",
+  "lastOpenFiles": []
 }
