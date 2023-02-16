@@ -1,14 +1,14 @@
 
 **<font color=Crimson>注意：[ ]内的内容可写可不写，[ ]不用加上</font>**
 
-# ** 1_连接数据库**
+# **1_连接数据库**
 
 ```CMD
 MySQL -u root -p
 ```
 
 &nbsp;
-# ** 2_注释**
+# **2_注释**
 
 ```SQL
 # 单行注释
@@ -42,7 +42,7 @@ use 数据库名称;
 ### 3_创建数据库
 
 ```SQL
-create database 数据库名称 [charset utf8]    # 一般charset utf8 写上去比较好
+create database 数据库名称 [charset utf8];    # 一般charset utf8 写上去比较好
 ```
 
 ### **4_删除数据库**
