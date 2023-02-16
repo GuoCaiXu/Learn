@@ -3,15 +3,15 @@
         {
             "name": "STM32F103C8T6",
             "includePath": [
-                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\串口通信\\User",
-                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\串口通信\\Libraries\\CMSIS",
-                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\串口通信\\Libraries\\STM32F10x_StdPeriph_Driver\\inc",
+                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\UART串口通信-上位机点亮LED灯\\User",
+                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\UART串口通信-上位机点亮LED灯\\Libraries\\CMSIS",
+                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\UART串口通信-上位机点亮LED灯\\Libraries\\STM32F10x_StdPeriph_Driver\\inc",
                 "C:\\App\\keil5MDK\\ARM\\ARMCC\\include",
                 "C:\\App\\keil5MDK\\ARM\\ARMCC\\include\\rw",
-                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\串口通信\\Libraries\\CMSIS\\startup",
-                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\串口通信\\Libraries\\STM32F10x_StdPeriph_Driver\\src",
-                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\串口通信\\User\\uart",
-                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\串口通信\\User\\led"
+                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\UART串口通信-上位机点亮LED灯\\Libraries\\CMSIS\\startup",
+                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\UART串口通信-上位机点亮LED灯\\Libraries\\STM32F10x_StdPeriph_Driver\\src",
+                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\UART串口通信-上位机点亮LED灯\\User\\uart",
+                "c:\\Project\\WareHouse\\Keil5\\stm32f103c8t6\\UART串口通信-上位机点亮LED灯\\User\\led"
             ],
             "defines": [
                 "USE_STDPERIPH_DRIVER",
