@@ -9,9 +9,8 @@ int main(void){
 
     LED_GPIO_Config();
     DEBUG_UART_Config();
-
-    //USART_SendData(DEBUG_USARTx, 'a');
-    Usart_SendString(DEBUG_USARTx, "开灯程序：\n");
+		
+		printf("开灯小程序!\r\n");
 		printf("发送1 开LED1， 发送2 开LED2\n");
 	
 		//printf->fputc->USART_SendData->   

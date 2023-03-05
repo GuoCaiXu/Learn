@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "basetime.h": "c",
+        "stm32f10x.h": "c",
+        "bsp_advancetime.h": "c",
+        "bsp_generamtim.h": "c",
+        "bsp_led.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
+}
