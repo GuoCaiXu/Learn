@@ -23,7 +23,7 @@
 # define LED2_OFF               digitalHi(LED2_GPIO_PORT, LED2_GPIO_PIN)
 # define LED2_ON                digitalLo(LED2_GPIO_PORT, LED2_GPIO_PIN)
 
-/*ÂàùÂßãÂåñLED GPIO ÂáΩÊï∞*/
+/*LED–°µ∆GPIO≥ı ºªØ*/
 void LED_GPIO_Config(void);
 
 # endif /*_BSP_LED_H*/

@@ -13,25 +13,17 @@ int main(void){
 	
 	while(1){
 
-		//设置一个位
-		GPIO_SetBits(LED_GPIO_PORT, LED1_GPIO_PIN);
+		LED1_ON;
 		delay(0xfffff);
-		//复位一个位
-		GPIO_ResetBits(LED_GPIO_PORT, LED1_GPIO_PIN);
+		LED2_ON;
+		LED1_OFF;
 		delay(0xfffff);
-
-		//设置一个位
-		GPIO_SetBits(LED_GPIO_PORT, LED2_GPIO_PIN);
+		LED3_ON;
+		LED2_OFF;
 		delay(0xfffff);
-		//复位一个位
-		GPIO_ResetBits(LED_GPIO_PORT, LED2_GPIO_PIN);
+		LED1_ON;
+		LED3_OFF;
 		delay(0xfffff);
 
-		//设置一个位
-		GPIO_SetBits(LED_GPIO_PORT, LED3_GPIO_PIN);
-		delay(0xfffff);
-		//复位一个位
-		GPIO_ResetBits(LED_GPIO_PORT, LED3_GPIO_PIN);
-		delay(0xfffff);
 	}
 }

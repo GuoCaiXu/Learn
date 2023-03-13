@@ -71,7 +71,7 @@ static void GENERAL_TIM_Mode_Config(void){
   TIM_TimeBaseStructure.TIM_Period = GENERAL_TIM_Period;
   /*驱动CNT计数器的时钟 = Fck_int/(psc+1)     11*1/72*/
   TIM_TimeBaseStructure.TIM_Prescaler = GENERAL_TIM_Prescaler;
-  /*时钟分频因子，配置死区时间需要用到*/
+  /*时钟分频因子，配置死区时间需要用到    1分频*/
   TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
   /*计数器计数模式，设置为向上计数*/
   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;

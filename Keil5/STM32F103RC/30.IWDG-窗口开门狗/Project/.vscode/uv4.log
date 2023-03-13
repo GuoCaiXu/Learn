@@ -1,0 +1,31 @@
+Load "..\\Output\\IWDG-窗口开门狗.axf" 
+Set JLink Project File to "c:\Project\WareHouse\Keil5\STM32F103RC\30.IWDG-窗口开门狗\Project\JLinkSettings.ini"* JLink Info: Device "STM32F103RC" selected.
+ 
+JLink info:
+------------
+DLL: V4.96d, compiled Jan 29 2015 11:45:37
+Firmware: J-Link V9 compiled Sep  1 2016 18:29:50
+Hardware: V9.60
+S/N : 69669408 
+Feature(s) : RDI, GDB, FlashDL, FlashBP, JFlash 
+ 
+* JLink Info: TotalIRLen = 9, IRPrint = 0x0011
+* JLink Info: TotalIRLen = 9, IRPrint = 0x0011
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F103RC
+VTarget = 3.354V
+State of Pins: TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 15000 kHz
+ 
+Erase Done.Programming Done.Verify OK.Application running ...
+Flash Load finished at 12:15:32

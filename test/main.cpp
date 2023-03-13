@@ -1,35 +1,29 @@
 # include <iostream>
+# include <string>
 
 using namespace std;
 
-const int N = 103;
-int area[N][N];
-
 int main(){
 
-    int n, m, t;
-    int ans = 0;
-    cin >> n >> m >> t;
-    while(t --){
-        int r1, c1, r2, c2;
-        cin >> r1 >> c1 >> r2 >> c2;
+    string name = "3519610554", temp_name;
+    string keys = "1234", temp_keys;
 
-        for (int i = r1; i <= r2; i ++){
-            for (int j = c1; j <= c2; j ++){
-                area[i][j] = 1;
-            }
+    while(1){
+        cout << "ÇëÊäÈëÄãµÄÕËºÅ:";
+        cin >> temp_name;
+        cout << "ÇëÊäÈëÄãµÄÃÜÂë£º";
+        cin >> temp_keys;
+        if (temp_name == name && temp_keys == keys){
+            system("cls");
+            cout << "µÇÂ¼³É¹¦!" << endl;
+            break;
         }
-    }
-
-    for (int i = 1; i <= n; i ++){
-        for (int j = 1; j <= m; j ++){
-            if (area[i][j] == 0){
-                ans ++;
-            }
+        else{
+            system("cls");
+            cout << "ÃÜÂë»òÕËºÅ´íÎóÇëÖØÐÂÊäÈë!" << endl;
         }
+        system("pause");
+        system("cls");
     }
-
-    cout << ans << endl;
-
     return 0;
 }
